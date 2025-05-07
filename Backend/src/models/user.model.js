@@ -30,7 +30,7 @@ const User = db.define('User', {
         type: DataTypes.STRING,
         allowNull: true,
     },
-    Gender: {
+    gender: {
         type: DataTypes.ENUM("Male", "Female", "Other"),
         allowNull: true,
     },

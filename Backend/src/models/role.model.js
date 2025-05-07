@@ -2,7 +2,7 @@
 const { DataTypes } = require('sequelize');
 const {db} = require('../config/database'); 
 
-const ROLES_ENUM = ["Admin", "User"];
+const ROLES_ENUM = ["Admin", "User","SystemOwner"];
 
 const Role = db.define('Role', {
     id: {
@@ -25,4 +25,4 @@ const Role = db.define('Role', {
     ]
   });
 
-module.exports = {Role};
+module.exports = {Role,ROLES_ENUM};
