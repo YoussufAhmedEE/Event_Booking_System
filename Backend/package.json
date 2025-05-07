@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/server.js",
+    "erd": "node ./src/scripts/ERD.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Youssuf_Ahmed",
@@ -19,5 +20,8 @@
     "pg": "^8.15.6",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "sequelize-erd": "^1.3.1"
   }
 }
