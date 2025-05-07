@@ -13,8 +13,16 @@ const Role = db.define('Role', {
     name: {
         type: DataTypes.ENUM(...ROLES_ENUM),
         allowNull: false,
-        unique: true
+        // unique: true
     },
-});
+},
+{
+    indexes: [
+      {
+        unique: true,
+        fields: ['name']
+      }
+    ]
+  });
 
 module.exports = {Role};

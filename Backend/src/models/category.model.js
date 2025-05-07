@@ -10,11 +10,18 @@ const Category = db.define('Category',{
     name:{
         type:DataTypes.STRING,
         allowNull:false,
-        unique: true
+        // unique: true
     },
 },
-{  
+{
     timestamps: true,
-});
+    
+    indexes: [
+        {
+            unique: true,
+            fields: ['name']
+        }
+    ]
+},);
 
 module.exports={Category};
