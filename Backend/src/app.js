@@ -8,7 +8,8 @@ const { PORT }= require('./config/index.js'); // Port of the server
 const {db} = require('./config/database');
 const { ErrorMiddleware } = require('./middlewares/errors.middlewares.js');
 const associations = require('./models/associations.js');
-
+/******************************************** */
+const {authRouter}= require('./routes/authentication.router.js');
 
 class App {
     constructor() {
@@ -57,6 +58,7 @@ class App {
     }
 
     initializeRoutes(){
+        this.app.use('/api/auth', authRouter); // Authentication routes
 
     }
 
