@@ -30,10 +30,6 @@ const Booking = db.define('Booking',{
         type:DataTypes.ENUM('confirmed', 'cancelled'),
         defaultValue:'confirmed'
     },
-    bookingDate:{
-        type:DataTypes.DATE,
-        allowNull:false
-    },
 },
 {  
     timestamps: true,

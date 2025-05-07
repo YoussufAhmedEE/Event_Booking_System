@@ -17,6 +17,7 @@ const authorizeRole = (requiredRole) => (req, res, next) => {
         if (!decoded ||!decoded.roles || !decoded.roles.includes(requiredRole)) {
             throw new UnauthorizedError("Unauthorized User");
         }
+        req.userId= decoded.userId
     
         next();
     } catch (error) {
