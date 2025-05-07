@@ -7,6 +7,7 @@ const passport = require("passport");
 const { PORT }= require('./config/index.js'); // Port of the server
 const {db} = require('./config/database');
 const { ErrorMiddleware } = require('./middlewares/errors.middlewares.js');
+const associations = require('./models/associations.js');
 
 
 class App {
@@ -31,7 +32,7 @@ class App {
         try {
                 await db.authenticate();     // Test the database connection 
                 console.log('Connection to the database has been established successfully.');
-                db.sync({ alter: true })
+                db.sync({ alter: true }) 
                 console.log('Database synchronization complete.');
         } catch (error) {
                 console.error('Unable to connect to the database:', error);
