@@ -20,6 +20,9 @@ Tag.belongsToMany(Event, { through: EventTag, foreignKey: "tagId" });
 Event.belongsTo(Category, { foreignKey: 'categoryId' });
 Category.hasMany(Event, { foreignKey: 'categoryId' });
 
+Tag.belongsTo(Category, { foreignKey: 'categoryId' });
+Category.hasMany(Tag, { foreignKey: 'categoryId' });
+
 
 //Event → EventImage (One-to-Many)
 Event.hasMany(EventImage, { foreignKey: 'eventId' });

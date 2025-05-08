@@ -1,7 +1,8 @@
 require('dotenv').config(); 
 
-const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD,PORT ,HASH_SALT_ROUNDS,JWT_SECRET
+const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD,PORT ,HASH_SALT_ROUNDS,JWT_SECRET,API_KEY,AI_MODEL
 } = process.env;
+
 
 
 module.exports = {
@@ -11,5 +12,7 @@ module.exports = {
     PGPASSWORD,
     PORT,
     HASH_SALT_ROUNDS,
-    JWT_SECRET
+    JWT_SECRET,
+    API_KEY,
+    AI_MODEL
 };

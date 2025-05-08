@@ -1,5 +1,6 @@
 const {DataTypes} = require('sequelize');
 const {db} = require('../config/database');
+const { Category } = require('./category.model');
 
 
 const Tag = db.define('Tag',{
@@ -7,6 +8,14 @@ const Tag = db.define('Tag',{
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
+    },
+    categoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: Category,
+            key: 'id'
+        }
     },
     name:{
         type:DataTypes.STRING,
