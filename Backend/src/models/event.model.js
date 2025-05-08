@@ -39,12 +39,8 @@ const Event = db.define('Event', {
         type: DataTypes.TIME,
         allowNull: false
     },
-    venue: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    location: {
-        type: DataTypes.STRING,
+    venueId: {
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     status: {

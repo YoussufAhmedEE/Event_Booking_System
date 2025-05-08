@@ -6,6 +6,8 @@ const {EventTag} =require('./eventTags.model');
 const {Tag} =require('./tag.model');
 const {Category} =require('./category.model');
 const {Booking} =require('./bookings.model');
+const {Venue}=require('./venue.model');
+
 const { db } = require('../config/database');
 
 //Many-to-many relationship between User and Role
@@ -34,7 +36,12 @@ Booking.belongsTo(User, { foreignKey: 'userId' });
 Event.hasMany(Booking, { foreignKey: 'eventId' });
 Booking.belongsTo(Event, { foreignKey: 'eventId' });
 
+
+Event.belongsTo(Venue, { foreignKey: 'venueId' });
+Venue.hasMany(Event, { foreignKey: 'venueId' });
+
+
 module.exports = {
-    User, Role, UserRole, Event,EventImage,EventTag,Tag,Category,Booking,
+    User, Role, UserRole, Event,EventImage,EventTag,Tag,Category,Booking,Venue,
     db
 };
