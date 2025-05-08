@@ -11,7 +11,7 @@ const associations = require('./models/associations.js');
 /******************************************** */
 const {authRouter}= require('./routes/authentication.router.js');
 const {eventRouter} =require('./routes/event.router.js');
-
+const {bookingRouter}=require('./routes/booking.router.js')
 
 class App {
     constructor() {
@@ -62,6 +62,8 @@ class App {
     initializeRoutes(){
         this.app.use('/api/auth', authRouter); // Authentication routes
         this.app.use('/api/event', eventRouter); // event routes
+        this.app.use('/api/booking', bookingRouter); // booking routes
+
 
 
     }
