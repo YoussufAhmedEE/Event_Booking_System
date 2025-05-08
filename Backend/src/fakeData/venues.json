@@ -1,0 +1,22 @@
+[
+    { "name": "Cairo Opera House", "capacity": 1200, "latitude": 30.0428, "longitude": 31.2243 },
+    { "name": "Dubai Mall Exhibition Hall", "capacity": 3000, "latitude": 25.1972, "longitude": 55.2797 },
+    { "name": "Alexandria Library Conference Center", "capacity": 1000, "latitude": 31.2089, "longitude": 29.9092 },
+    { "name": "Riyadh Front Expo Center", "capacity": 5000, "latitude": 24.8452, "longitude": 46.6753 },
+    { "name": "Casablanca International Fairgrounds", "capacity": 7000, "latitude": 33.5731, "longitude": -7.5898 },
+    { "name": "El Sawy Culturewheel", "capacity": 600, "latitude": 30.0580, "longitude": 31.2247 },
+    { "name": "Al Manara International Conferences Center", "capacity": 1600, "latitude": 30.0128, "longitude": 31.4089 },
+    { "name": "La Corniche Beach Garden", "capacity": 1500, "latitude": 24.4667, "longitude": 54.3167 },
+    { "name": "Gouna Conference Hall", "capacity": 800, "latitude": 27.3951, "longitude": 33.6786 },
+    { "name": "Tunis City Center Expo", "capacity": 2000, "latitude": 36.8065, "longitude": 10.1815 },
+    { "name": "Jeddah Waterfront Park", "capacity": 4000, "latitude": 21.6243, "longitude": 39.1100 },
+    { "name": "Tripoli Exhibition Center", "capacity": 3500, "latitude": 32.8872, "longitude": 13.1875 },
+    { "name": "Marina Alamein Beach Club", "capacity": 1200, "latitude": 30.9965, "longitude": 28.9138 },
+    { "name": "Sheraton Heliopolis Ballroom", "capacity": 1000, "latitude": 30.1046, "longitude": 31.3752 },
+    { "name": "Grand Pyramids Hotel Conference Hall", "capacity": 900, "latitude": 29.9765, "longitude": 31.1313 },
+    { "name": "Opera Algiers", "capacity": 2000, "latitude": 36.7326, "longitude": 3.0870 },
+    { "name": "Morocco Mall Event Hall", "capacity": 2500, "latitude": 33.5691, "longitude": -7.6912 },
+    { "name": "Oman Convention & Exhibition Centre", "capacity": 3500, "latitude": 23.5976, "longitude": 58.2875 },
+    { "name": "Doha Exhibition & Convention Center", "capacity": 4500, "latitude": 25.3271, "longitude": 51.5335 },
+    { "name": "Abu Dhabi National Exhibition Centre", "capacity": 6000, "latitude": 24.4181, "longitude": 54.4342 }
+]

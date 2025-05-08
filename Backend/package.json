@@ -8,6 +8,7 @@
     "erd": "node ./src/scripts/ERD.js",
     "seedroles": "node ./src/scripts/seedRoles.js",
     "seedcat": "node ./src/scripts/seedCategories",
+    "seedven": "node ./src/scripts/seedVenues.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Youssuf_Ahmed",
