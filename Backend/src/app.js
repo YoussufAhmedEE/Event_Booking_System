@@ -12,7 +12,8 @@ const associations = require('./models/associations.js');
 const {authRouter}= require('./routes/authentication.router.js');
 const {eventRouter} =require('./routes/event.router.js');
 const {bookingRouter}=require('./routes/booking.router.js')
-
+const {tagRouter}=require('./routes/tag.router.js')
+const {imageRouter} =require('./routes/image.router.js')
 class App {
     constructor() {
         this.app = express();
@@ -35,7 +36,7 @@ class App {
         try {
                 await db.authenticate();     // Test the database connection 
                 console.log('Connection to the database has been established successfully.');
-                db.sync({ alter: true }) 
+                db.sync({ alter: true}) 
                 console.log('Database synchronization complete.');
         } catch (error) {
                 console.error('Unable to connect to the database:', error);
@@ -47,7 +48,7 @@ class App {
         this.app.use(express.json());   // a middleware that used to parse json requests
         this.app.use(cookieParser());   // a middleware used to parse cookies
         this.app.use(cors({
-            origin: "http://localhost:8002", //Port of Frontend 
+            origin: "http://localhost:8000", //Port of Frontend 
             credentials: true, 
         })); // a middleware that alow cors (requests from other hosts )
 
@@ -63,6 +64,10 @@ class App {
         this.app.use('/api/auth', authRouter); // Authentication routes
         this.app.use('/api/event', eventRouter); // event routes
         this.app.use('/api/booking', bookingRouter); // booking routes
+        this.app.use('/api/tag', tagRouter); // tag routes
+        this.app.use('/api/image', imageRouter); // tag routes
+
+
 
 
 

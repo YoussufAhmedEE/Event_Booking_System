@@ -1,0 +1,222 @@
+[
+  {
+    "name": "Tech Innovators Summit",
+    "description": "A gathering of the brightest minds in tech to discuss AI, IoT and Big Data.",
+    "categoryId": 3,
+    "startDate": "2025-06-15",
+    "endDate": "2025-06-16",
+    "startTime": "10:00",
+    "endTime": "18:00",
+    "venueId": 2,
+    "price": 150
+  },
+  {
+    "name": "Summer Music Festival",
+    "description": "Join top artists for a weekend of live music and good vibes.",
+    "categoryId": 2,
+    "startDate": "2025-07-10",
+    "endDate": "2025-07-12",
+    "startTime": "14:00",
+    "endTime": "23:00",
+    "venueId": 5,
+    "price": 100
+  },
+  {
+    "name": "Startup Pitch Night",
+    "description": "Pitch your startup idea to top investors and get instant feedback.",
+    "categoryId": 6,
+    "startDate": "2025-08-01",
+    "endDate": "2025-08-01",
+    "startTime": "17:00",
+    "endTime": "20:00",
+    "venueId": 4,
+    "price": 50
+  },
+  {
+    "name": "Nature Photography Workshop",
+    "description": "A full-day hands-on photography workshop in natural settings.",
+    "categoryId": 24,
+    "startDate": "2025-06-22",
+    "endDate": "2025-06-22",
+    "startTime": "09:00",
+    "endTime": "16:00",
+    "venueId": 12,
+    "price": 80
+  },
+  {
+    "name": "Yoga & Mindfulness Retreat",
+    "description": "A 2-day retreat to reconnect with your inner self and nature.",
+    "categoryId": 29,
+    "startDate": "2025-09-05",
+    "endDate": "2025-09-06",
+    "startTime": "07:00",
+    "endTime": "18:00",
+    "venueId": 9,
+    "price": 200
+  },
+  {
+    "name": "Artisan Food Fair",
+    "description": "Sample and shop from local and international food artisans.",
+    "categoryId": 5,
+    "startDate": "2025-07-18",
+    "endDate": "2025-07-19",
+    "startTime": "11:00",
+    "endTime": "20:00",
+    "venueId": 6,
+    "price": 30
+  },
+  {
+    "name": "Digital Marketing Workshop",
+    "description": "Learn the latest strategies in social media and digital advertising.",
+    "categoryId": 34,
+    "startDate": "2025-06-25",
+    "endDate": "2025-06-25",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "venueId": 11,
+    "price": 120
+  },
+  {
+    "name": "Film Screening Night",
+    "description": "Watch classic and indie films under the stars.",
+    "categoryId": 14,
+    "startDate": "2025-08-14",
+    "endDate": "2025-08-14",
+    "startTime": "19:00",
+    "endTime": "23:00",
+    "venueId": 7,
+    "price": 25
+  },
+  {
+    "name": "Motorsport Grand Prix",
+    "description": "An adrenaline-packed motorsport event for racing enthusiasts.",
+    "categoryId": 37,
+    "startDate": "2025-09-20",
+    "endDate": "2025-09-21",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "venueId": 14,
+    "price": 250
+  },
+  {
+    "name": "Gaming Expo 2025",
+    "description": "Explore the latest in gaming technology and tournaments.",
+    "categoryId": 21,
+    "startDate": "2025-11-01",
+    "endDate": "2025-11-02",
+    "startTime": "10:00",
+    "endTime": "20:00",
+    "venueId": 1,
+    "price": 90
+  },
+  {
+    "name": "Book Lovers Meet",
+    "description": "Connect with fellow book enthusiasts and meet authors.",
+    "categoryId": 15,
+    "startDate": "2025-07-05",
+    "endDate": "2025-07-05",
+    "startTime": "12:00",
+    "endTime": "18:00",
+    "venueId": 8,
+    "price": 20
+  },
+  {
+    "name": "Seasonal Food Festival",
+    "description": "Celebrate the season’s best produce with food trucks and stalls.",
+    "categoryId": 22,
+    "startDate": "2025-06-30",
+    "endDate": "2025-07-01",
+    "startTime": "12:00",
+    "endTime": "22:00",
+    "venueId": 17,
+    "price": 40
+  },
+  {
+    "name": "Public Speaking Masterclass",
+    "description": "Improve your confidence and communication skills on stage.",
+    "categoryId": 28,
+    "startDate": "2025-08-09",
+    "endDate": "2025-08-09",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "venueId": 13,
+    "price": 100
+  },
+  {
+    "name": "Health & Wellness Expo",
+    "description": "Discover new wellness trends, products and services.",
+    "categoryId": 4,
+    "startDate": "2025-07-20",
+    "endDate": "2025-07-21",
+    "startTime": "10:00",
+    "endTime": "18:00",
+    "venueId": 10,
+    "price": 60
+  },
+  {
+    "name": "Pet Lovers Day",
+    "description": "A fun-packed event for pets and pet parents alike.",
+    "categoryId": 43,
+    "startDate": "2025-09-01",
+    "endDate": "2025-09-01",
+    "startTime": "10:00",
+    "endTime": "17:00",
+    "venueId": 3,
+    "price": 30
+  },
+  {
+    "name": "Social Media Strategy Summit",
+    "description": "The latest tactics in influencer marketing and platform growth.",
+    "categoryId": 33,
+    "startDate": "2025-10-03",
+    "endDate": "2025-10-03",
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "venueId": 18,
+    "price": 140
+  },
+  {
+    "name": "Art & Culture Expo",
+    "description": "Experience exhibitions from local and international artists.",
+    "categoryId": 8,
+    "startDate": "2025-06-28",
+    "endDate": "2025-06-29",
+    "startTime": "10:00",
+    "endTime": "20:00",
+    "venueId": 16,
+    "price": 50
+  },
+  {
+    "name": "Outdoor Hiking Challenge",
+    "description": "A challenging hike through scenic mountain trails.",
+    "categoryId": 30,
+    "startDate": "2025-08-18",
+    "endDate": "2025-08-18",
+    "startTime": "06:00",
+    "endTime": "15:00",
+    "venueId": 15,
+    "price": 70
+  },
+  {
+    "name": "Fashion Week Showcase",
+    "description": "Latest trends from emerging and established fashion designers.",
+    "categoryId": 13,
+    "startDate": "2025-09-11",
+    "endDate": "2025-09-13",
+    "startTime": "12:00",
+    "endTime": "22:00",
+    "venueId": 19,
+    "price": 180
+  },
+  {
+    "name": "Cultural Dance Festival",
+    "description": "An energetic celebration of world dance performances.",
+    "categoryId": 41,
+    "startDate": "2025-07-26",
+    "endDate": "2025-07-27",
+    "startTime": "14:00",
+    "endTime": "22:00",
+    "venueId": 20,
+    "price": 60
+  }
+]

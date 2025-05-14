@@ -76,6 +76,10 @@ const EventImage = db.define("EventImage", {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    publicId: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
   });
 
 module.exports={Event,EventImage};

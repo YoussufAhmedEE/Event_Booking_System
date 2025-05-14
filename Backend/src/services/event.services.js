@@ -1,5 +1,5 @@
 const {User}=require("../models/user.model")
-const {Event}=require("../models/event.model")
+const {Event,EventImage}=require("../models/event.model")
 const {Booking}=require("../models/bookings.model")
 const {Category}=require("../models/category.model")
 const {Venue}=require("../models/venue.model")
@@ -13,7 +13,8 @@ class EventServices{
                 where,
                 include: [
                   { model: Category, attributes: ["name"] },
-                  { model: Venue, attributes: ["name","latitude","longitude"] }
+                  { model: Venue, attributes: ["name","latitude","longitude"] },
+                  { model: EventImage, attributes: ['imageUrl', 'publicId'] }
                 ]
               });
           

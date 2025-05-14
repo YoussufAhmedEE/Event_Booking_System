@@ -14,9 +14,12 @@ class AuthenticationServices {
     static register = async (data) => {
         
         try{
+            console.log("data: ",data)
                 const { error,value }=validateRegisterData(data);
+                            console.log("value: ",value)
+
                 if (error) {
-                    return {error: error.details[0].message};
+                    return {error:true,message: error.details[0].message};
                 }
                 const user = await User.findOne({
                             where: {
@@ -28,23 +31,24 @@ class AuthenticationServices {
                         });
                 
                 if (user) {
-                return {error:'Email or Phone number already exist'};
+                return {error:true,message:'Email or Phone number already exist'};
                 }
                 const hashedPassword = await createHash(value.password);
-                
+
                 const newUser = await User.create({
                     firstName: value.firstName,
                     lastName: value.lastName,
                     email: value.email,
                     password: hashedPassword,
                     phoneNumber: value.phoneNumber,
-                    gender: value.gender});
-
-                    const RegularRole= await Role.findOne({
-                        where: {
-                            name: 'User'
-                        },
-                    })
+                    gender: value.gender
+                });
+                
+                const RegularRole= await Role.findOne({
+                    where: {
+                        name: 'User'
+                    },
+                })
 
                 await UserRole.create({
                     userId: newUser.id,
@@ -56,7 +60,7 @@ class AuthenticationServices {
                 return {token};
 
         }catch (error) {  
-            return { error: error.message };
+            return { error:true, message: error.message };
 
         }
 }
@@ -64,11 +68,13 @@ class AuthenticationServices {
 
     static login=async (data) => {
         try {
+                        console.log("data: ",data)
+
             const {error,value} = validateLoginData(data);
 
-            
+
             if(error){
-                return {error:error.details[0].message}
+                return {error:true,message:error.details[0].message}
             }
 
 
@@ -82,23 +88,26 @@ class AuthenticationServices {
                   },
                 ],
               });
-              
 
             if(!user){
-                return{error: "Email not exist"}
+                return{error:true,message: "Email not exist"}
             }
+
+            console.log(user)
+
             
             const checkPassword = await bcrypt.compare(value.password , user.password);  
             
             if(!checkPassword){
-                return{error: "Wrong password!"}
+                return{error:true,message: "Wrong password!"}
             }
 
+            
+          
             const roles = user?.Roles?.map(role => role.name);
-        
-
+           
             const token=createToken(user.id,roles)
-
+         
             return{token}
 
 
