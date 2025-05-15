@@ -8,7 +8,7 @@ static register =async (req,res)=>{
         const registerData= req.body
         const response = await AuthenticationServices.register(registerData);
         if (response.error) {
-            return res.status(400).json({ error: response.error });
+            return res.status(400).json({ error: response.message });
         }
         res.status(200).cookie('jwt', response.token, { httpOnly: false, maxAge: 24 * 60 * 60 * 1000 })
         .json({ message: "User created successfully" });
@@ -20,12 +20,13 @@ static register =async (req,res)=>{
 
 static login =async (req , res) => {
     try {
-        const loginData =  req.body ; 
+        const loginData =  req.body ;
         const response = await AuthenticationServices.login(loginData);
         if (response.error) {
-            return res.status(400).json({ error: response.error});
+            return res.status(400).json({ error: response.message});
         }
-        res.status(200).cookie('jwt' , response.token , {httpOnly:false , sameSite: 'None',  secure: false ,  maxAge : 24 * 60 * 60 * 1000})
+
+        res.status(200).cookie('jwt' , response.token , {httpOnly:false ,  maxAge : 24 * 60 * 60 * 1000})
         .json({message : "Logged in Succesfully"});
         
     } catch (err) {
