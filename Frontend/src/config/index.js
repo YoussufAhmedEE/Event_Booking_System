@@ -1,6 +1,4 @@
 
-require('dotenv').config(); 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const { REACT_APP_API_BASE_URL} = process.env;
-
-export default REACT_APP_API_BASE_URL
+export default API_BASE_URL;
