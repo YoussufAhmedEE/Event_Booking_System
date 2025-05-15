@@ -7,7 +7,7 @@ const{HelperValidations}=require('../validations/helper.validation')
 class BookingServices{
     static book=async ({userId,eventId})=>{
         try{
-                if(!HelperValidations.validateId(eventId) ||HelperValidations.validateId(userId)){
+                if(!HelperValidations.validateId(eventId) || !HelperValidations.validateId(userId)){
                     return {error:true, message: "Id Must be a positive-Number"}
                 }
 
@@ -61,11 +61,11 @@ class BookingServices{
                 include: [
                     {
                         model: User,
-                        attributes: ['id', 'name', 'email', 'phone'],
+                        attributes: ['id', 'firstName', 'lastName', 'email', 'phoneNumber'],
                     },
                     {
                         model: Event,
-                        attributes: ['name', 'status', 'venue', 'location'],
+                        attributes: ['id','name', 'status', 'price'],
                         include:[
                             {
                                 model:Category,

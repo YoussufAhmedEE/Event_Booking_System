@@ -7,9 +7,10 @@ class BookingControllerForUser{
         try{            
             const{ eventId }=req.body
             const userId  =req.userId
+            
             const response= await BookingServices.book({userId,eventId})
             if(response.error){
-                new Error(response.message)
+              return  res.status(400).json({ error: response.message });
             }
 
             res.status(200).json({message:"booking done successfully",booking:response.booking })
@@ -23,7 +24,7 @@ class BookingControllerForUser{
             const userId =req.userId
             const response= await BookingServices.read({userId})
             if(response.error){
-                new Error(response.message)
+              return  res.status(400).json({ error: response.message });
             }
             res.status(200).json({message:"booking returned successfully",bookings:response.bookings })
         }catch(error){

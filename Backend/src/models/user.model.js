@@ -10,12 +10,10 @@ const User = db.define('User', {
     firstName: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
     },
     lastName: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
     },
     password: {
         type: DataTypes.STRING,
@@ -29,6 +27,8 @@ const User = db.define('User', {
     phoneNumber: {
         type: DataTypes.STRING,
         allowNull: true,
+        unique: true
+
     },
     gender: {
         type: DataTypes.ENUM("Male", "Female", "Other"),
