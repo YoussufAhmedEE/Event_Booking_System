@@ -14,6 +14,10 @@ const {eventRouter} =require('./routes/event.router.js');
 const {bookingRouter}=require('./routes/booking.router.js')
 const {tagRouter}=require('./routes/tag.router.js')
 const {imageRouter} =require('./routes/image.router.js')
+const {categoryRouter} =require('./routes/category.router.js')
+
+const {venueRouter} =require('./routes/venue.router.js')
+
 class App {
     constructor() {
         this.app = express();
@@ -65,7 +69,9 @@ class App {
         this.app.use('/api/event', eventRouter); // event routes
         this.app.use('/api/booking', bookingRouter); // booking routes
         this.app.use('/api/tag', tagRouter); // tag routes
-        this.app.use('/api/image', imageRouter); // tag routes
+        this.app.use('/api/image', imageRouter); 
+        this.app.use('/api/venue', venueRouter); 
+        this.app.use('/api/category', categoryRouter);
 
 
 
