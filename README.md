@@ -20,10 +20,10 @@ Admin users can create, update, and delete events.
 - **Database:** PostgreSQL (Neon)  
 - **ORM:** Sequelize  
 
-## 📥 Installation & Run
-  - installation: npm install
-  - Run: npm run dev  
+## 📥 Installation & Run 
 
 ### Clone the repo
 ```bash
 git clone https://github.com/YoussufAhmedEE/Event-Booking-System.git
+npm install
+npm run dev 
