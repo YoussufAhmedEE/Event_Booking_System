@@ -25,5 +25,10 @@ Admin users can create, update, and delete events.
 ### Clone the repo
 ```bash
 git clone https://github.com/YoussufAhmedEE/Event-Booking-System.git
+cd frontend
+npm install
+npm run dev 
+cd ..
+cd backend
 npm install
 npm run dev 
