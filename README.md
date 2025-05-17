@@ -22,10 +22,8 @@ Admin users can create, update, and delete events.
 
 ## 📥 Installation & Run 
 login as admin to see features
-{
-      "email":"Youssuf#1213@example.com",
-       "password":"Youssuf#123"
-}
+      -"email":"Youssuf#1213@example.com",
+      -"password":"Youssuf#123"
 you cav register only as regular user!
 
 ### Clone the repo
