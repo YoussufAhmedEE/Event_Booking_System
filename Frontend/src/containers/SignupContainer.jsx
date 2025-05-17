@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import SignupForm from "../components/SignupForm";
 import { motion } from "framer-motion";
 import { register } from "../services/AuthenticationServices";
+import { useNavigate } from "react-router-dom";
+
 const SignupContainer = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -14,6 +16,7 @@ const SignupContainer = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +37,10 @@ const SignupContainer = () => {
 
       const response =await register(formData)
       if(response.success){
-          console.log("User registered successfully!", formData);
+        navigate('/home')
+      }
+      else{
+        alert(response.error)
       }
     }
   };

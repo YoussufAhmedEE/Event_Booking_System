@@ -36,6 +36,9 @@ const CustomerCard = ({ user }) => {
             <strong>Gender:</strong> {user.gender}
           </Typography>
         )}
+         <Typography variant="body1" color="text.secondary">
+            <strong>Number of bookings:</strong> {user.bookingCount}
+          </Typography>
       </CardContent>
     </Card>
   );

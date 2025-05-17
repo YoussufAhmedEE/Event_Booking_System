@@ -27,7 +27,7 @@ static login =async (req , res) => {
         }
 
         res.status(200).cookie('jwt' , response.token , {httpOnly:false ,  maxAge : 24 * 60 * 60 * 1000})
-        .json({message : "Logged in Succesfully"});
+        .json({message : "Logged in Succesfully", isAdmin:response.isAdmin});
         
     } catch (err) {
         res.status(400).json({ error : err.message });

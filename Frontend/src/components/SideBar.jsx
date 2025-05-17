@@ -9,7 +9,8 @@ import {
 } from "@mui/material";
 
 import EventIcon from '@mui/icons-material/Event';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+
 
 import {
   People
@@ -18,7 +19,7 @@ import styles from "../styles/SideBarStyles";
 
 const sidebarItems = [
   { text: "Events", icon: <EventIcon sx={{ fontSize: 22 }} /> },
-  { text: "Booking", icon: <FactCheckIcon sx={{ fontSize: 22 }} /> },
+  { text: "Analytics", icon: <AnalyticsIcon sx={{ fontSize: 22 }} /> },
   { text: "Customers", icon: <People sx={{ fontSize: 22 }} /> },
 ];
 

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import LoginForm from "../components/LoginFrom";
 import { motion } from "framer-motion";
 import { login } from "../services/AuthenticationServices";
+import { useNavigate } from "react-router-dom";
+
 
 const LoginContainer = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+    const navigate = useNavigate();
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   
@@ -17,10 +19,21 @@ const LoginContainer = () => {
       email,password
     }
     const response = await login(userData);
-
-    if(response.success){
-      console.log(response.message)
+    if(!response.success){
+      alert(response.error);
     }
+    else {
+        const { isAdmin}= response;
+
+    if (isAdmin) {
+      // Navigate to admin dashboard
+      navigate("/admin");
+    } else {
+      // Navigate to user home
+      navigate("/home");
+    }
+  }
+    
   }
   return (
       <motion.div

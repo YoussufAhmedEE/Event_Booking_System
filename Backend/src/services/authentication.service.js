@@ -93,7 +93,6 @@ class AuthenticationServices {
                 return{error:true,message: "Email not exist"}
             }
 
-            console.log(user)
 
             
             const checkPassword = await bcrypt.compare(value.password , user.password);  
@@ -105,10 +104,11 @@ class AuthenticationServices {
             
           
             const roles = user?.Roles?.map(role => role.name);
-           
+           const isAdmin = roles.includes("Admin");
+
             const token=createToken(user.id,roles)
          
-            return{token}
+            return{token,isAdmin}
 
 
         }catch(error){

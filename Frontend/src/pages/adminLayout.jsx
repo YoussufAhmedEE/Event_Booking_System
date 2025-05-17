@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import Sidebar from "../components/SideBar";
 import { useState } from "react";
+import { Typography } from "@mui/material";
 
 import styles from "../styles/AdminLayoutStyles";
 import EventAdminContainer from "../containers/EventsAdminContainer"
@@ -10,8 +11,10 @@ const renderMainContent = (activeItem) => {
     if(activeItem === "Events"){
         return <EventAdminContainer/>
     }
-    else if(activeItem==="Booking"){
-
+    else if(activeItem==="Analytics"){
+       return( <Typography variant="body1" color="text.secondary">
+            <strong>To be added Inshaa Allah</strong> 
+          </Typography>);
     }
     else if(activeItem==="Customers"){
         return <UserContainer/>

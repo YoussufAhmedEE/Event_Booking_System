@@ -32,7 +32,7 @@ export const login = async (userData) => {
       withCredentials: true, // Ensures cookies (JWT) are sent & received
     });
 
-    return { success: true, message: response.data.message };
+    return { success: true, message: response.data.message ,isAdmin:response.data.isAdmin};
   } catch (error) {
     console.log("ERROR:", error)
     console.log("Backend Error:", error.response.data)
