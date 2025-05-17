@@ -13,7 +13,7 @@ const Hero = () => {
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
-        px: 3,
+        // px: 3,
         overflow: "hidden",
       }}
     >
@@ -52,6 +52,9 @@ const Hero = () => {
        
       </motion.div>
     </Box>
+
+
+
   );
 };
 

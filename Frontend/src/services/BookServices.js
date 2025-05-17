@@ -98,6 +98,8 @@ export const Book=async ({eventId,userId})=>{
 
     return {success:true ,booking: response.data.booking };
   } catch (error) {
+          console.log(error.response.data)
+
     return {
       success: false,
       error: error.response.data || "Something went wrong. Please try again later.",

@@ -10,6 +10,8 @@
     "seedcat": "node ./src/scripts/seedCategories",
     "seedven": "node ./src/scripts/seedVenues.js",
     "seedevents": "node ./src/scripts/seedEvents.js",
+    "seedimages": "node ./src/scripts/seedimages.js",
+
     "suggesttags": "node ./src/scripts/suggesttags.js",
 
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -9,7 +9,7 @@ const EventCard = ({ event, onClick }) => {
 
   return (
     <Card sx={{
-      maxWidth: 345, borderRadius: 3, boxShadow: 3,
+      width: 345, borderRadius: 3, boxShadow: 3,
       cursor: 'pointer',
       transition: 'transform 0.3s ease',
       '&:hover': {

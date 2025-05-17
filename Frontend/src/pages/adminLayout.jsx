@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import styles from "../styles/AdminLayoutStyles";
 import EventAdminContainer from "../containers/EventsAdminContainer"
-
+import UserContainer from "../containers/UserContainer"
 const renderMainContent = (activeItem) => {
     
     if(activeItem === "Events"){
@@ -14,6 +14,7 @@ const renderMainContent = (activeItem) => {
 
     }
     else if(activeItem==="Customers"){
+        return <UserContainer/>
 }
     return null;
 };

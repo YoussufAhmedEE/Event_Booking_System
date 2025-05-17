@@ -25,6 +25,7 @@ const sidebarItems = [
 const Sidebar = ({ activeItem, setActiveItem }) => {
 
   const handleItemClick = (text) => {
+    console.log(text)
       setActiveItem(text);
   };
 

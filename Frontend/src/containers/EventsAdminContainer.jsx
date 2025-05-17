@@ -9,6 +9,7 @@ import EventCreateDialog from "../components/EventCreate";
 import EventUpdateDialog from "../components/EventUpdate";
 
 import ConfirmDialog from "../components/Confirmation"
+import UserSelectDialog from "../components/CustomerDialog"
 import { uploadImage } from "../services/ImageServices"; 
 
 const EventAdminContainer = () => { 
@@ -19,8 +20,7 @@ const EventAdminContainer = () => {
     const [openCreation, setopenCreation] = useState(false);
     const [openUpdate, setOpenUpdate] = useState(false);
     const [openConfirmation, setOpenConfirmation] = useState(false);
-
-    const [user, setUser] = useState({ id: 1 }); // for testing userId
+    const [openUserDialog, setOpenUserDialog] = useState(false);
 
     const fetchEvents = async () => {
         try {
@@ -102,6 +102,17 @@ const handleCreateEvent = async (formDataWithTextAndImages) => {
   }
 };
 
+const handleBookForUser=async(user)=>{
+  const res= await Book({userId:user.id,eventId:selectedEvent.id});
+  if(res.success){
+    alert(`Done`)
+  }
+  else{
+    alert(`not Done`)
+
+  }
+}
+
 
 
   return (
@@ -135,6 +146,7 @@ const handleCreateEvent = async (formDataWithTextAndImages) => {
         mode="admin"
         onUpdate={()=>setOpenUpdate(true)}
         onDelete={()=>setOpenConfirmation(true)}
+        BookforUser={setOpenUserDialog}
     />
 
         <EventCreateDialog
@@ -156,6 +168,13 @@ const handleCreateEvent = async (formDataWithTextAndImages) => {
         event={selectedEvent}
         handleConfirm={handleDelete}
         message="Are you sure you want to delete this event?"
+    />
+
+
+    <UserSelectDialog
+      open={openUserDialog}
+      onClose={() => setOpenUserDialog(false)}
+      onSelect={handleBookForUser}
     />
 
 

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const EventDetailsModal = ({ open, handleClose, event, isBooked, onBookNow ,onCancelBooking, mode="user", onUpdate, onDelete}) => {
+const EventDetailsModal = ({ open, handleClose, event, isBooked, onBookNow ,onCancelBooking, mode="user", onUpdate, onDelete,BookforUser}) => {
   
   console.log(event)
   if (!event) return null;
@@ -91,6 +91,9 @@ const EventDetailsModal = ({ open, handleClose, event, isBooked, onBookNow ,onCa
             </Button>
             <Button variant="contained" color="error" onClick={onDelete}>
               Delete
+            </Button>
+            <Button variant="contained" color="success" onClick={()=>BookforUser(true)}>
+              Book for a User
             </Button>
             
           </>

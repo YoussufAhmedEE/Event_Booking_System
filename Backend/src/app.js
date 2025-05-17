@@ -17,6 +17,7 @@ const {imageRouter} =require('./routes/image.router.js')
 const {categoryRouter} =require('./routes/category.router.js')
 
 const {venueRouter} =require('./routes/venue.router.js')
+const {userRouter} =require('./routes/user.router.js')
 
 class App {
     constructor() {
@@ -72,6 +73,8 @@ class App {
         this.app.use('/api/image', imageRouter); 
         this.app.use('/api/venue', venueRouter); 
         this.app.use('/api/category', categoryRouter);
+        this.app.use('/api/users', userRouter);
+
 
 
 
