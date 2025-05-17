@@ -1,7 +1,7 @@
 import { Box, Typography, Button } from "@mui/material";
 import { motion } from "framer-motion";
 
-const Hero = ({ onBrowseEventsClick }) => {
+const Hero = () => {
   return (
     <Box
       sx={{
@@ -49,13 +49,7 @@ const Hero = ({ onBrowseEventsClick }) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 1 }}
       >
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={onBrowseEventsClick}
-        >
-          Browse Events
-        </Button>
+       
       </motion.div>
     </Box>
   );

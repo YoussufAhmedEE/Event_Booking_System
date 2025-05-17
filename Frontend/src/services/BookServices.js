@@ -24,13 +24,17 @@ export const book=async ({eventId})=>{
 //user cancels the reservation
 export const cancel=async ({eventId})=>{
     try {
-    const response = await axios.patch(`${BASE_URL}/cancel/${eventId}`,
+    const response = await axios.patch(`${BASE_URL}/cancel/${eventId}`,{},
         {
-      withCredentials: true, 
-      });
+          withCredentials: true, 
+        });
+
 
     return {success:true ,booking: response.data.booking };
   } catch (error) {
+      
+    console.log('error: ',error.response.data)
+
     return {
       success: false,
       error: error.response.data || "Something went wrong. Please try again later.",
@@ -59,14 +63,20 @@ export const myBookings=async()=>{
 //check if the user booked this event or not
 export const isEventBooked=async({eventId})=>{
     try {
+      let response=false;
     const {bookings}=await myBookings();
-    console.log(bookings)
+
+    console.log("bookings:",bookings)
 
     for(let booking of bookings){
-        if(booking.Event.id==eventId)
-                return true;
+        if(booking.Event.id == eventId)
+                {
+                  response=true;
+                  break;
+                }
+            
     }
-    return false;
+    return response;
   } catch (error) {
     return {
       success: false,

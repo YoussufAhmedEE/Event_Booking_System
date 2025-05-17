@@ -1,14 +1,13 @@
 import { Box, Typography, Pagination } from "@mui/material";
 import EventCard from "../components/EventCard";
 import { useEffect, useState } from "react";
-import { getEvents } from "../services/EventServices";
-import {book,myBookings, IsEventBooked} from "../services/BookServices"
+import {book,myBookings, isEventBooked,cancel} from "../services/BookServices"
 import { motion } from "framer-motion";
 
 
 import EventDetailsModal from "../components/EventDetailsModel";
 import CongratsDialog from "../components/Congratulation"
-const EventsSection = () => {
+const EventsSection = ({fetchFunction, title, bgColor}) => {
   const [events, setEvents] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -23,7 +22,7 @@ const EventsSection = () => {
 
   const fetchEvents = async () => {
     try {
-      const res = await getEvents();
+      const res = await fetchFunction();
       if (res.success) setEvents(res.events);
     } catch (error) {
       console.error("Error fetching events:", error);
@@ -36,7 +35,16 @@ const EventsSection = () => {
 
   const handleCardClick = async (event) => {
     setSelectedEvent(event);
-    setIsBooked(await IsEventBooked({eventId:event.id}));
+
+    if(title!="Booked Events"){
+      const response=await isEventBooked({eventId:event.id})
+      setIsBooked(response);
+    }
+    else{
+      setIsBooked(true);
+    }
+    
+    console.log(selectedEvent)
     setOpenModal(true);
   };
   
@@ -48,12 +56,14 @@ const EventsSection = () => {
         setPage(value);
   };
 
-   const handleBookNow =async (event) => {
+  const handleBookNow =async (event) => {
     try {
     const response = await book({ eventId: event.id });
 
     if (response.success) {
       setOpenCongrats(true);
+      fetchEvents();
+
     } else {
       handleCloseModal(); 
       alert(`Something went wrong while booking. Please try again. ${response.error}`);
@@ -63,6 +73,26 @@ const EventsSection = () => {
     alert("An error occurred: " + error.message);
   }
   };
+  const handleCancelBooking =async (event)=>{
+    try {
+    const response = await cancel( {eventId:event.id });
+
+    if (response.success) {
+      alert("Done");
+      fetchEvents();
+
+    } else {
+      alert(`Something went wrong while canceling. Please try again. ${response.error}`);
+    }
+
+    handleCloseModal(); 
+
+  } catch (error) {
+    handleClose();
+    alert("An error occurred: " + error.message);
+  }
+
+  }
   
 const handleCloseCongrats = () => {
       setOpenCongrats(false);
@@ -77,9 +107,9 @@ const handleCloseCongrats = () => {
   const totalPages = Math.ceil(events.length / eventsPerPage);
 
   return (
-    <Box sx={{ p: 5, backgroundColor: "#7cb3dc" }}>
+    <Box sx={{ p: 5, backgroundColor: bgColor }}>
       <Typography variant="h4" sx={{ mb: 3 }}>
-        Upcoming Events
+       {title}
       </Typography>
 
       <Box
@@ -101,10 +131,12 @@ const handleCloseCongrats = () => {
                 open={openModal}
                 handleClose={handleCloseModal}
                 event={selectedEvent}
+                mode="user"
                 isBooked={isBooked}
                 onBookNow={handleBookNow}
+                onCancelBooking={handleCancelBooking}
+
               />
-              
               <CongratsDialog open={openCongrats} handleClose={handleCloseCongrats} />
 
      </motion.div>

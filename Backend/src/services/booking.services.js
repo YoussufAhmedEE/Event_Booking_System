@@ -1,7 +1,9 @@
 const {Booking} = require('../models/bookings.model');
 const { Category } = require('../models/category.model');
-const{Event}=require('../models/event.model')
+const{Event,EventImage}=require('../models/event.model')
 const{User}=require('../models/user.model')
+const{Venue}=require('../models/venue.model')
+const{Tag}=require('../models/tag.model')
 const{HelperValidations}=require('../validations/helper.validation')
 
 class BookingServices{
@@ -65,13 +67,12 @@ class BookingServices{
                         attributes: ['id', 'firstName', 'lastName', 'email', 'phoneNumber'],
                     },
                     {
-                        model: Event,
-                        attributes: ['id','name', 'status', 'price'],
-                        include:[
-                            {
-                                model:Category,
-                                attributes:['name']
-                            }
+                       model: Event,
+                        include: [
+                            { model: Category, attributes: ['name'] },
+                            { model: Venue, attributes: ['name', 'latitude', 'longitude'] },
+                            { model: EventImage, attributes: ['imageUrl', 'publicId'] },
+                            { model: Tag, attributes: ["id", "name"] } 
                         ]
                         
                     },
@@ -105,7 +106,13 @@ class BookingServices{
                     return {error:true, message: "Event is not Available"}
                 }
 
-                const booking = await Booking.findOne({eventId,userId});
+                const booking = await Booking.findOne({
+                    where:{
+                        eventId:eventId,
+                        userId:userId,
+                        status:"confirmed"
+                    }
+                });
 
                 if (booking.status === "cancelled") {
                     return { error: true, message: "Booking is already canceled before" };

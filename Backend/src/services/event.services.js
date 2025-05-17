@@ -3,6 +3,7 @@ const {Event,EventImage}=require("../models/event.model")
 const {Booking}=require("../models/bookings.model")
 const {Category}=require("../models/category.model")
 const {Venue}=require("../models/venue.model")
+const {Tag}=require("../models/tag.model")
 
 
 const {validateEventData,validateEventDataUpdate}= require('../validations/event.validation')
@@ -14,7 +15,8 @@ class EventServices{
                 include: [
                   { model: Category, attributes: ["name"] },
                   { model: Venue, attributes: ["name","latitude","longitude"] },
-                  { model: EventImage, attributes: ['imageUrl', 'publicId'] }
+                  { model: EventImage, attributes: ['imageUrl', 'publicId'] },
+                  { model: Tag, attributes: ["id", "name"] } 
                 ]
               });
           

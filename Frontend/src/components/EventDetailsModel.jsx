@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const EventDetailsModal = ({ open, handleClose, event, isBooked, onBookNow }) => {
+const EventDetailsModal = ({ open, handleClose, event, isBooked, onBookNow ,onCancelBooking, mode="user", onUpdate, onDelete}) => {
+  
+  console.log(event)
   if (!event) return null;
-
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -69,16 +71,35 @@ const EventDetailsModal = ({ open, handleClose, event, isBooked, onBookNow }) =>
         </Typography>
 
         {/* Book Now / Booked Button */}
-        <Button
-          variant="contained"
-          color={isBooked ? "success" : "primary"}
-          disabled={isBooked}
-          onClick={() => onBookNow(event)}
-          fullWidth
-          sx={{ mt: 2 }}
-        >
-          {isBooked ? "Booked" : "Book Now"}
-        </Button>
+    <Box sx={{ mt: 2, display: "flex", gap: 1 }}>
+        {mode === "user" && (
+          isBooked ? (
+            <Button variant="contained" color="error" onClick={() => onCancelBooking(event)}>
+              Cancel Booking
+            </Button>
+          ) : (
+            <Button variant="contained" color="primary" onClick={() => onBookNow(event)}>
+              Book Now
+            </Button>
+          )
+        )}
+
+        {mode === "admin" && (
+          <>
+            <Button variant="contained" color="primary" onClick={() => onUpdate(event)}>
+              Update
+            </Button>
+            <Button variant="contained" color="error" onClick={onDelete}>
+              Delete
+            </Button>
+            
+          </>
+          
+        )}
+      
+</Box>
+
+
 
       </DialogContent>
     </Dialog>
