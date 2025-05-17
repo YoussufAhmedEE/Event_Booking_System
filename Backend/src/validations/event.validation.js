@@ -9,7 +9,7 @@ const schemaOfCreation = Joi.object({
 
     startDate: Joi.date().required(),
     
-    endDate: Joi.date().greater(Joi.ref('startDate')).required(),
+    endDate: Joi.date().min(Joi.ref('startDate')).required(),
 
     startTime: Joi.string().pattern(/^([0-1]\d|2[0-3]):([0-5]\d)(:[0-5]\d)?$/).required(),
     

@@ -1,10 +1,12 @@
 const {User}=require("../models/user.model")
 const {Event,EventImage}=require("../models/event.model")
+const {EventTag}=require("../models/eventTags.model")
+
 const {Booking}=require("../models/bookings.model")
 const {Category}=require("../models/category.model")
 const {Venue}=require("../models/venue.model")
 const {Tag}=require("../models/tag.model")
-
+const {AIServices}=require('../ai/grok')
 
 const {validateEventData,validateEventDataUpdate}= require('../validations/event.validation')
 class EventServices{
@@ -36,7 +38,7 @@ class EventServices{
                 }
 
             const event = await Event.create(value);
-
+            await this.generateAndAttachEventTags(event);
             return {event};
 
         }catch(error){         
@@ -84,8 +86,59 @@ class EventServices{
 
     }
 
+static async generateAndAttachEventTags(event) {
+  try {
+    const category = await Category.findByPk(event.categoryId);
+    if (!category) {
+      console.warn("Category not found for event.");
+      return;
+    }
+
+    // suggest tags via AI
+    const aiResponse = await AIServices.suggesTags({
+      category: category.name,
+      description: event.description,
+      numberofTags: 2,
+    });
+
+    console.log(aiResponse)
+    let tagsToUse = [];
+
+    if (aiResponse.error || !aiResponse.tags || aiResponse.tags.length === 0) {
+      // if AI failed, fallback to random existing tags from same category
+      const existingTags = await Tag.findAll({
+        where: { categoryId: category.id },
+        limit: 3,
+      });
+
+      tagsToUse = existingTags.map(t => t.name);
+    } else {
+      tagsToUse = aiResponse.tags;
+    }
+
+    // save tags in Tag model (if not exist)
+    for (const tagName of tagsToUse) {
+      let [tag] = await Tag.findOrCreate({
+        where: {
+          name: tagName,
+          categoryId: category.id,
+        },
+      });
+
+      // link tag with event
+      await EventTag.create({
+        eventId: event.id,
+        tagId: tag.id,
+      });
+    }
+
+  } catch (error) {
+    console.error("Error generating/attaching tags:", error.message);
+  }
+}
 
 }
+
 
 
 module.exports={EventServices}

@@ -7,12 +7,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 const EventDetailsModal = ({ open, handleClose, event, isBooked, onBookNow ,onCancelBooking, mode="user", onUpdate, onDelete,BookforUser}) => {
   
-  console.log(event)
   if (!event) return null;
   
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: event.EventImages.length > 1,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
