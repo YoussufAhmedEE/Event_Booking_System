@@ -11,9 +11,10 @@ const schemaOfCreation = Joi.object({
     
     endDate: Joi.date().greater(Joi.ref('startDate')).required(),
 
-    startTime: Joi.string().pattern(/^([0-1]\d|2[0-3]):([0-5]\d)$/) .required(),// hh:mm format
+    startTime: Joi.string().pattern(/^([0-1]\d|2[0-3]):([0-5]\d)(:[0-5]\d)?$/).required(),
+    
+    endTime: Joi.string().pattern(/^([0-1]\d|2[0-3]):([0-5]\d)(:[0-5]\d)?$/).required(),
 
-    endTime: Joi.string().pattern(/^([0-1]\d|2[0-3]):([0-5]\d)$/) .required(),
 
     venueId: Joi.number().integer().positive().required(),
 
@@ -25,8 +26,9 @@ const schemaOfUpdating= Joi.object({
     categoryId: Joi.number().integer().positive(),
     startDate: Joi.date(),
     endDate: Joi.date().greater(Joi.ref('startDate')),
-    startTime: Joi.string().pattern(/^([0-1]\d|2[0-3]):([0-5]\d)$/),
-    endTime: Joi.string().pattern(/^([0-1]\d|2[0-3]):([0-5]\d)$/),
+    startTime: Joi.string().pattern(/^([0-1]\d|2[0-3]):([0-5]\d)(:[0-5]\d)?$/),
+    endTime: Joi.string().pattern(/^([0-1]\d|2[0-3]):([0-5]\d)(:[0-5]\d)?$/),
+
     venueId: Joi.number().integer().positive(),
     status: Joi.string().valid('Available', 'Finished', 'Cancelled'),
     price: Joi.number().positive()

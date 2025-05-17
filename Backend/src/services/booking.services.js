@@ -55,6 +55,7 @@ class BookingServices{
             
             if (userId && HelperValidations.validateId(userId))
                 where.userId = userId;
+                where.status ="confirmed"
 
             const bookings = await Booking.findAll({
                 where,
@@ -90,7 +91,7 @@ class BookingServices{
     static cancel=async ({userId,eventId})=>{
         try{
             
-                if(!HelperValidations.validateId(eventId) ||HelperValidations.validateId(userId)){
+                if(!HelperValidations.validateId(eventId) || !HelperValidations.validateId(userId)){
                     return {error:true, message: "Id Must be a positive-Number"}
                 }
 

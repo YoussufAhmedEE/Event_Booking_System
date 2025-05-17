@@ -7,6 +7,8 @@ const {eventOptionsMiddleware}=require('../middlewares/eventOptions.middleware')
 eventRouter.post('/create',isAdmin,EventController.createEevet)
 eventRouter.patch('/update/:eventId',isAdmin,EventController.updateEevet)
 
+eventRouter.delete('/delete/:eventId',isAdmin,EventController.deleteEevet)
+
 eventRouter.get('/all',isUser,eventOptionsMiddleware , EventController.getAllEvents)
 
 

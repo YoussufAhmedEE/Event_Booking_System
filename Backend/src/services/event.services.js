@@ -68,6 +68,21 @@ class EventServices{
         }
       }
 
+       static deleteEevet = async({eventId})=>{
+        try{
+
+            const event= await Event.findByPk(eventId)
+            await event.destroy(eventId);
+
+            return{error:false};
+
+        }catch(error){         
+            return{error:true, message:error.message}
+        }
+
+    }
+
+
 }
 
 
